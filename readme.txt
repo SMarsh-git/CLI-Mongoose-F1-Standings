@@ -43,6 +43,10 @@ FUNCTIONALITY TO ADD - STRETCH GOALS
 
 // COMMAND LINE COPY PASTE TO ENTER CURRENT STANDINGS AS OF 30.03.2022
 
+ npm start -- --add  --driver "Carlos Sainz Jr." --team "Ferrari" --points "45" --powerunit "Ferrari 066/7"
+
+ npm start -- --add  --driver "Charles Leclerc." --team "Ferrari" --points "33" --powerunit "Ferrari 066/7"
+
  npm start -- --add  --driver "Zhou Guanyu" --team "Alfa Romeo-Ferrari" --points "33" --powerunit "Ferrari 066/7"
 
  npm start -- --add  --driver "Valterri Bottas" --team "Alfa Romeo-Ferrari" --points "1" --powerunit "Ferrari 066/7"
