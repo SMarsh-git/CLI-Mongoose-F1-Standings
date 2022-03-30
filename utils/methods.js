@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const DriverModel = require("./model");
 
-// Create
 exports.addDriver = async (newDriver) => {
   try {
     const driver = new DriverModel(newDriver);
@@ -10,11 +9,9 @@ exports.addDriver = async (newDriver) => {
   } catch (error) {
     console.log(error);
   }
-
   mongoose.connection.close();
 };
 
-// Read
 exports.listDriver = async () => {
   try {
     console.log(await DriverModel.find({}));
@@ -25,7 +22,6 @@ exports.listDriver = async () => {
   mongoose.connection.close();
 };
 
-// Update
 exports.updateDriver = async () => {
   try {
     await DriverModel.updateOne({
@@ -38,11 +34,8 @@ exports.updateDriver = async () => {
   } catch (error) {
     console.log(error);
   }
-
   mongoose.connection.close();
 };
-
-// Delete
 
 exports.deleteDriver = async () => {
   try {
@@ -51,6 +44,5 @@ exports.deleteDriver = async () => {
   } catch (error) {
     console.log(error);
   }
-
   mongoose.connection.close();
 };
