@@ -1,4 +1,6 @@
 require("./db/connection");
+require("dotenv").config();
+
 const mongoose = require("mongoose");
 const yargs = require("yargs");
 const { hideBin } = require("yargs/helpers");
@@ -11,6 +13,12 @@ const {
 } = require("./utils/methods");
 
 (async () => {
+  try{
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("Connection to DB: Successful.");
+  } catch (error) {
+    console.log(error);
+  };
   console.log("Welcome to the Formula One 2022 season standings database.");
   if (argv.add) {
     await addDriver({

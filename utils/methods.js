@@ -22,14 +22,9 @@ exports.listDriver = async () => {
   mongoose.connection.close();
 };
 
-exports.updateDriver = async () => {
+exports.updateDriver = async (name) => {
   try {
-    await DriverModel.updateOne({
-      name: "placeholder",
-      team: "team placeholder",
-      points: "points placeholder",
-      powerunit: "pwoerunit placeholder",
-    });
+    await DriverModel.updateOne(name);
     console.log("Driver successfully updated.");
   } catch (error) {
     console.log(error);
@@ -46,3 +41,11 @@ exports.deleteDriver = async () => {
   }
   mongoose.connection.close();
 };
+
+
+// await DriverModel.updateOne({
+//   name: "placeholder",
+//   team: "team placeholder",
+//   points: "points placeholder",
+//   powerunit: "pwoerunit placeholder",
+// });
