@@ -9,6 +9,7 @@ const {
   listDriver,
   updateDriver,
   deleteDriver,
+  deleteAll,
 } = require("./utils/methods");
 
 (async () => {
@@ -29,13 +30,15 @@ const {
   } else if (argv.list) {
     await listDriver();
   } else if (argv.update) {
-    updateDriver();
+    await updateDriver();
   } else if (argv.delete) {
     await deleteDriver();
+  } else if (argv.deleteAll) {
+    await deleteAll();
   } else {
     mongoose.connection.close();
     console.log(
-      "Command not found. Please input --add, --list, --update, or --delete to interact with the database."
+      "Command not found. Please input --add, --list, --update, --delete, or --deleteAll to interact with the database."
     );
   }
 })();
