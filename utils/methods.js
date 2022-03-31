@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 const DriverModel = require("./model");
+const { argv } = require("yargs");
 
 exports.addDriver = async (newDriver) => {
   try {
     const driver = new DriverModel(newDriver);
     await driver.save();
-    console.log("Driver successfully input.");
+    console.log(`Driver added: ${argv.driver} is at ${argv.team}. ${argv.team}'s car uses a ${argv.powerunit} powerunit. ${argv.driver} currently has ${argv.points} points.`);
   } catch (error) {
     console.log(error);
   }
@@ -22,9 +23,14 @@ exports.listDriver = async () => {
   mongoose.connection.close();
 };
 
-exports.updateDriver = async (name) => {
+exports.updateDriver = async () => {
   try {
-    await DriverModel.updateOne(name);
+    await DriverModel.updateOne({
+      name: "placeholder",
+      team: "team placeholder",
+      points: "points placeholder",
+      powerunit: "powerunit placeholder",
+    });
     console.log("Driver successfully updated.");
   } catch (error) {
     console.log(error);
@@ -34,18 +40,12 @@ exports.updateDriver = async (name) => {
 
 exports.deleteDriver = async () => {
   try {
-    await DriverModel.deleteOne({ name: "placeholder" });
-    console.log("Driver successfully deleted.");
+    await DriverModel.deleteOne({ driver: argv.driver });
+    console.log(`"${argv.driver}" successfully deleted.`);
   } catch (error) {
     console.log(error);
   }
   mongoose.connection.close();
 };
 
-
-// await DriverModel.updateOne({
-//   name: "placeholder",
-//   team: "team placeholder",
-//   points: "points placeholder",
-//   powerunit: "pwoerunit placeholder",
-// });
+//BROKEN JUST DELETES INDEX POSITION 0 OF THE DATABASE.
