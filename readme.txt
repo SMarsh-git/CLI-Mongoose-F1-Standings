@@ -16,27 +16,30 @@ CLI inputs:
 
 #   npm start -- --add  --driver "Sainz" --team "Ferrari" --points "33" --powerunit "Ferrari 066/7"
 
-5. Listing Drivers
+5. Listing all Drivers
 
 #   npm start -- --list 
 
 6. Updating a Driver
 
-#   npm start -- --update "Ham" "Merc"
-
-// WILL CURRENTLY UPDATE SELECTED DRIVER TO PLACEHOLDER TEXT
+#   
 
 7. Deleting a Driver
 
-#   npm start -- --delete --driver "HAM"
+#   npm start -- --delete --driver "Lewis Hamilton"
+
+8. Deleting multiple values
+
+#  npm start -- --deleteAll --powerunit "Red Bull RBPTH001"
+#  npm start -- --deleteAll --driver "Yuki Tsunoda"
+#  npm start -- --deleteAll --points "4"
+#  npm start -- --deleteAll --team "Mercedes"
 
 //----------------------------------------------------//
 
 FUNCTIONALITY TO ADD - STRETCH GOALS
 
-1. Updating drivers/teams/points/powerunit to a user input, instead of placeholder text being hardcoded.
-
-2. Allow for filtered search results (by driver/team/engine)
+1. Allow for filtered search results (by driver/team/engine)
 
 
 //----------------------------------------------------//
