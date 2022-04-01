@@ -27,19 +27,36 @@ exports.listDriver = async () => {
 
 exports.updateDriver = async () => {
   try {
-    await DriverModel.updateOne({
-      name: argv.driver,
-      team: argv.team,
-      points: argv.points,
-      powerunit: argv.powerunit,
-    });
-    console.log("Driver successfully updated.");
+    if (argv.newdrivername) {
+      await DriverModel.updateOne(
+        { name: argv.driver },
+        { $set: { name: argv.newdrivername } }
+      );
+      console.log(`${argv.driver}' set to ${argv.newdrivername}`);
+    } else if (argv.newteam) {
+      await DriverModel.updateOne(
+        { name: argv.driver },
+        { $set: { team: argv.newteam } }
+      );
+      console.log(`${argv.driver}'s team set to ${argv.newteam}`);
+    } else if (argv.newpowerunit) {
+      await DriverModel.updateOne(
+        { name: argv.driver },
+        { $set: { powerunit: argv.newpowerunit } }
+      );
+      console.log(`${argv.driver}'s powerunit set to ${argv.newpowerunit}`);
+    } else if (argv.newpoints) {
+      await DriverModel.updateOne(
+        { name: argv.driver },
+        { $set: { points: argv.newpoints } }
+      );
+      console.log(`${argv.driver}'s points set to ${argv.newpoints}`);
+    }
   } catch (error) {
     console.log(error);
   }
   mongoose.connection.close();
 };
-// JUST UPDATES FIRST INPUT DRIVER INTO THE DATABASE. FIND WAY TO TARGET SPECIFIC DRIVERS FOR UPDATING.
 
 exports.deleteDriver = async () => {
   try {

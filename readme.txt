@@ -22,7 +22,10 @@ CLI inputs:
 
 6. Updating a Driver
 
-#   
+#   npm start -- --update --driver "driver to edit" --newdrivername "new driver name"
+#   npm start -- --update --driver "driver to edit" --newteam "new team"
+#   npm start -- --update --driver "driver to edit" --newpowerunit "new powerunit"
+#   npm start -- --update --driver "driver to edit" --newpoints "new points"
 
 7. Deleting a Driver
 

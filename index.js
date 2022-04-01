@@ -33,7 +33,7 @@ const {
     await updateDriver();
   } else if (argv.delete) {
     await deleteDriver();
-  } else if (argv.deleteAll) {
+  } else if (argv.deleteall) {
     await deleteAll();
   } else {
     mongoose.connection.close();
